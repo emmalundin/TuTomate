@@ -1,0 +1,126 @@
+.liquidFillGaugeText { 
+    font-family: 'Century Gothic', Arial; 
+    font-weight: bold; 
+}
+
+#tomate{
+    font-family: 'Century Gothic', Arial;
+}
+
+.navbar {
+    font-family: 'Century Gothic', Arial;
+    background-color: #800C00;
+}
+
+
+.page {
+    padding-top: 50px;
+    margin-bottom: 700px;
+}
+
+#playstopbutton {
+    position: relative;
+
+}
+
+.align-center{
+    text-align: center;
+}
+
+.row-centered {
+    text-align:center;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.margin {
+    margin-top:30px;
+}
+
+.label_text{
+     margin: 0px;
+    padding: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Century Gothic', Arial;
+    font-size: 25px;
+    font-weight: bold;
+    color: #3B3B3B;
+}
+
+.button_text{
+    font-family: 'Century Gothic', Arial;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Century Gothic';
+    font-size: 20px;
+    font-weight: bold;
+    color: #3B3B3B;
+
+}
+
+#clockLink {
+  background-color: #000000;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #cccccc;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #cccccc;
+}
+
+.glyphicon-trash{
+    pointer-events: none;
+}
+
+.glyphicon-edit{
+    pointer-events: none;
+}
+
+.glyphicon-play {
+    color: #cccccc;
+}
+
+.glyphicon-stop{
+        color: #cccccc;
+}
+
+button {
+    color: #cccccc;
+}
+
+.btn {
+    background-color: #800C00;
+    border-color: #800C00;
+    font-family: 'Century Gothic';
+}
+
+.btn:link , .btn:visited  , .btn:hover , .btn:active {
+    background-color: #999999;
+    border-color: #999999;
+    font-family: 'Century Gothic';
+
+}
+
+.right-value {
+    float: right;
+}
+
+.left-value {
+    float: left;
+}
+
+
+.headlines {
+}
+
+
+
+

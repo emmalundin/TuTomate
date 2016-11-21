@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tu Tomate</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+   <!--  <link rel="stylesheet" href="css/navbar.css"> -->
+
+    <link rel="stylesheet" href="css/TimeCircles.css" > 
+
+    <link rel="stylesheet" href="css/custom.css">
+
+  </head>
+  <body>
+
+
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span> <span
+            class="icon-bar"></span> <span class="icon-bar"></span> <span
+            class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" id="homeLink">TuTomate</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+
+          <li><a id="timerLink" href="#timer"><span
+              class="glyphicon glyphicon-time"></span> Timer</a></li>
+          <li><a id="settingsLink" href="#settings"><span
+              class="glyphicon glyphicon-cog"></span> Settings</a></li>
+          <li><a id="plannerLink" href="#planner"><span
+              class="glyphicon glyphicon-list-alt"></span> Planner</a></li>
+          <li><a id="statsLink" href="#stats"><span
+              class="glyphicon glyphicon-stats"></span> Stats</a></li>
+        </ul>
+       <ul class="nav navbar-nav navbar-middle">
+      <li class="active"><a id="clockLink" href="#timer"><span id="navbarTimer">Time</span></a></li>
+      </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+
+<div>
+<!-- HOME: Timer -->
+
+
+
+<div class="page" id="timer">
+
+  <div class="container" id="timerView">
+
+  <center><h4>TIMER</h4></center>
+    <div class="row" id="timer">
+      <div class="col-md-4"></div>
+      <div class="col-md-4" id="middle_column">
+        <div class="row row-centered">
+          <div class="col-md-12">
+            <div id="countDownClock"  ></div>
+          </div>
+        </div>
+        <!-- missing separation -->
+
+        <div class="row row-centered">
+          <div class="col-md-12">
+            <button class= "btn btn-small" id="playstopbutton"><i class="glyphicon glyphicon-play" id="icon"></i></button>
+         </div>
+        </div>
+        <div class="row row-centered margin">
+           <div class="col-md-12 " id ="current_task" >
+            <span class="label label_text" id="current_task_text" ></span>
+         </div>
+        </div>
+        <div class="row row-centered margin">
+          <div class="col-md-12">
+            <button id="next_task" class= "btn btn-small button_text" ><span class="glyphicon glyphicon-chevron-right" id="next_task_text" ></span></button>
+         </div>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+  </div>
+   
+     
+    
+  </div>
+</div>
+
+
+
+<!-- SETTINGS VIEW -->
+<div class = "page" id="settings">
+    <!-- Static navbar -->
+
+	   <div class="container" id="settingsView">
+     <center><h4>SETTINGS</h4></center><br><br>
+
+      <div class="col-lg-6 col-lg-offset-3">
+      <center><p class="headlines">Round time</p></center>
+      <div class="left-value">15</div><div class="right-value">45</div>
+      <input type="range" name="slider-fill" id="myRange1" class="myRange1" data-slider-min="15" data-slider-max="45" data-slider-step="1"  min="15" max="45" />
+
+
+      <span>Time: <span id="RoundTimeValue"></span></span><br><br>
+      </div>
+
+
+      <div class="col-lg-6 col-lg-offset-3">
+      <center><p class="headlines">Pause time</p></center>
+      <div class="left-value">3</div><div class="right-value">15</div>
+
+      <input type="range" id="myRange2" class="myRange2"  data-slider-min="15" data-slider-max="45" data-slider-step="1" min="3" max="15" data-highlight="true" >
+
+      <span>Time: <span id="PauseTimeValue"> </span></span><br><br>
+      </div>
+
+      <div class="col-lg-6 col-lg-offset-3">
+      <center><p class="headlines">Long pause time</p></center>
+      <div class="left-value">15</div><div class="right-value">30</div>
+      <input type="range" id="myRange3" class="myRange3"  data-slider-min="15" data-slider-max="45" data-slider-step="1" min="15" max="30">
+      <span>Time: <span id="LongpauseTimeValue"> </span></span><br><br>
+      <h4>Amount of pomodori before a long pause: <span class="numberofPomodoriLongPause">
+        <span class ="nose"></span>
+        <button class="minusPomodoro btn"><span class="glyphicon glyphicon-minus"></span></button>
+      <button class="plusPomodoro btn"><span class="glyphicon glyphicon-plus"></span></button></span> </h4>
+     
+      </div>
+      <div class="col-lg-6 col-lg-offset-3">
+      <center><button type="button" class="btn btn-primary" id="saveBtn" data-target="">Save</button></center>
+      </div>
+
+
+     </div>
+</div>
+
+
+
+<!-- PLANNER -->
+<div class = "page" id="planner">
+  <div class="container" id="plannerView">
+     <center><h4>PLANNER</h4></center>
+     <strong>On going tasks:</strong>
+    <div class="panel-group" id="accordion">
+     <div id = "template" class="panel panel-default template">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+
+            <a class="accordion-toggle" data-toggle="collapse" href="#collapseThree" >
+              <span class="glyphicon glyphicon-plus"></span>
+              <span class = "text"></span>
+            </a>
+
+            <span class="btn-group pull-right"> 
+              <button type="button" class="btn btn-default btn-xs editTaskButton" data-toggle="modal" data-target="#editModal">
+
+                <span class="glyphicon glyphicon-edit"></span>
+              </button>
+
+              <button type="button" class="btn btn-default btn-xs deleteTaskButton">
+               <span class="glyphicon glyphicon-trash"></span>
+              </button>
+            </span>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div>
+             <label class = "details"></label>
+            </div>
+            <l class = "description"></l>
+            <div>
+            <label class = "PomodoriLabel"></label>
+            </div>
+            <div class = "ImagesPomodori" id ="pomodoriImage" >
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="dragDrop" class="ui-widget-header"></div>
+    <div class="row">
+
+      <div class="col-xs-9">
+ 
+      </div>
+      <div class="col-xs-3">
+        <!-- Small modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">+</button>
+
+
+  <div id="createModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+        <form>
+            <div class="form-group">
+              <label for="createtask-name" class="control-label">Name:</label>
+              <input type="text" class="form-control" id="createtaskname">
+            </div>
+            <div class="form-group">
+              <label for="createtask-desc" class="control-label">Description:</label>
+              <textarea class="form-control" id="createtaskdesc"></textarea>
+            </div>
+
+           <div class="form-group">
+           <label for="pomodoro-text" class="control-label">Number of Pomodori:</label>
+            </div>
+            <div class="form-group" id = "allPomodoros">
+              <div class="alert alert" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert"></button>
+                  Please select at least one Pomodoro.
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button  id="cancelTaskButton" type="button" class="btn btn" data-dismiss="modal">Cancel</button>
+            <button id="createTaskButton" type="button" class="btn btn-primary">Create</button>
+
+          </div>
+
+          </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="editModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <form>
+            <div class="form-group">
+              <label for="edittask-name" class="control-label">Name:</label>
+              <input type="text" class="form-control" id="edittaskname">
+            </div>
+            <div class="form-group">
+              <label for="edittask-desc" class="control-label">Description:</label>
+              <textarea class="form-control" id="edittaskdesc"></textarea>
+            </div>
+
+           <div class="form-group">
+           <label for="pomodoro-text" class="control-label">Number of Pomodori:</label>
+            </div>
+            <div class="form-group" id = "editPomodoros">
+          </div>
+            <div class="form-group">
+          </div>
+
+
+
+          <div class="modal-footer">
+            <button  id="cancelUpdateButton" type="button" class="btn btn" data-dismiss="modal">Cancel</button>
+            <button id="updateTaskButton" type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+
+          </div>
+
+          </form>
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+
+      <div>
+    <strong>Finished tasks:</strong>
+    <div class="panel-group" id="accordionFinish">
+       <div id = "templateFinish" class="panel panel-default templateFinish">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+
+              <a class="accordion-toggle" data-toggle="collapse" href="#collapseThree" >
+                <span class="glyphicon glyphicon-plus"></span>
+                <span class = "text"></span>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div>
+               <label class = "details"></label>
+              </div>
+              <l class = "description"></l>
+              <div>
+              <label class = "PomodoriLabel"></label>
+              </div>
+              <div class = "ImagesPomodori" id ="pomodoriImage" >
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- STATS DETAILS -->
+
+
+<div class="page" id="statsdetails">
+
+
+  <div class="container" id="statsDetailsView">
+
+       <div id = "finishedTable" class="table-responsive">
+       </div>
+     
+  <button class = "btn" id="backToStatsButton">Back</button> 
+  </div>
+
+</div>
+
+
+
+<!-- STATS -->
+
+
+<div class="page" id="stats">
+
+
+     <div class="container" id="statsView">
+      <center><h4>STATS</h4></center>
+     <svg id="tomate" width="97%" height="250"></svg>
+     <button class = "btn" id="detailsButton">Details</button>  
+     </div>
+   
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+    <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+   <script data-require="jqueryui@*" data-semver="1.10.0" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+
+
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+ 
+    <!-- D3 liquid fill gauge -->
+  <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+  
+  
+  
+
+
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/Model.js"></script>
+	<script src="js/view/plannerView.js"></script>
+  <script src="js/controller/plannerViewController.js"></script>
+	<script src="js/view/settingsView.js"></script>
+  <script src="js/controller/settingsViewController.js"></script>  
+	<script src="js/view/timerView.js"></script>
+  <script src="js/controller/timerViewController.js"></script>
+  <script src="js/view/statsView.js"></script>
+  <script src="js/controller/statsViewController.js"></script>
+  <script src="js/view/statsDetailsView.js"></script>
+  <script src="js/controller/statsDetailsViewController.js"></script>
+  <script type="text/javascript" src="js/TimeCircles.js"></script>
+  <script type="text/javascript" src="js/liquidFillGauge.js"></script>
+
+
+
+  </body>
+
+  <script>
+
+/*$(document).ready(function(){
+
+    $("#settings").hide();
+    $("#planner").hide();
+    $("#stats").hide();
+    $("#statsdetails").hide();
+
+
+    $("#homeLink").click(function(){
+      console.log("click");
+        $("#timer").show();
+        $("#timer").siblings().hide();
+    });
+
+
+    $("#timerLink").click(function(){
+      console.log("click");
+        $("#timer").show();
+        $("#timer").siblings().hide();
+    });
+
+    $("#clockLink").click(function(){
+      console.log("click");
+      $("#timer").show();
+      $("#timer").siblings().hide();
+    });
+
+
+    $("#plannerLink").click(function(){
+        $("#planner").show();
+        $("#planner").siblings().hide();
+    });
+
+
+    $("#settingsLink").click(function(){
+        $("#settings").show();
+        $("#settings").siblings().hide();
+    });
+
+    $("#statsLink").click(function(){
+        $("#stats").show();
+        $("#stats").siblings().hide();
+    });
+
+});*/
+</script>
+
+<script>
+  $(document).on('click','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') ) {
+      $(this).collapse('hide');
+    }
+  });
+</script>
+
+<script>
+   $(".template").hide();
+</script>
+</html>
